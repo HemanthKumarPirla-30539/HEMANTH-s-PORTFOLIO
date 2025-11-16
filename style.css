@@ -1,0 +1,142 @@
+/* ---------------- GLOBAL ---------------- */
+:root{
+  --bg:#000000;
+  --card:#0f1113;
+  --muted:rgba(255,255,255,0.66);
+  --accent-gradient: linear-gradient(90deg,#00f5a0,#3b82f6,#7c3aed);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:var(--bg);color:#fff;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+
+/* ---------------- NAV ---------------- */
+nav{
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  align-items:center;
+  padding:18px;
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+}
+nav a{color:#e6fdf4;text-decoration:none;padding:8px 12px;border-radius:8px;transition:all .18s ease;font-weight:600}
+nav a:hover{transform:translateY(-3px);box-shadow:0 6px 28px rgba(0,0,0,0.6);color:#000;background:var(--accent-gradient)}
+
+/* ---------------- LAYOUT ---------------- */
+.container{
+  width:92%;
+  max-width:1100px;
+  margin:36px auto;
+  padding-bottom:60px;
+}
+
+/* ---------------- HERO ---------------- */
+.hero{
+  display:flex;
+  gap:24px;
+  align-items:center;
+  margin-bottom:22px;
+}
+.hero .photo{
+  width:160px;height:160px;border-radius:14px;object-fit:cover;border:3px solid rgba(255,255,255,0.06);box-shadow:0 10px 40px rgba(0,0,0,0.7);
+}
+.hero .intro{flex:1}
+.title{font-size:22px;margin:0 0 6px;color:#00f5a0}
+.subtitle{color:var(--muted);margin:0 0 12px;font-size:15px}
+.actions{display:flex;gap:12px}
+
+/* ---------------- CARDS ---------------- */
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.04);
+  border-radius:12px;
+  padding:18px;
+  margin-bottom:18px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.6);
+}
+
+/* ---------------- SKILLS ---------------- */
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.section-head h2{margin:0;font-size:18px;color:#00f5a0}
+.small-muted{color:var(--muted);font-size:13px}
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+.skill{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.skill-name{font-size:15px;font-weight:600}
+.skill-bar{
+  width:100%;
+  height:14px;
+  background:rgba(255,255,255,0.04);
+  border-radius:999px;
+  padding:3px;
+  border:1px solid rgba(255,255,255,0.03);
+  overflow:hidden;
+}
+.fill{
+  height:100%;
+  width:0%;
+  border-radius:999px;
+  background:var(--accent-gradient);
+  transition: width 1.8s cubic-bezier(.2,.9,.2,1);
+  box-shadow:0 6px 18px rgba(0,0,0,0.6) inset;
+}
+
+/* Bar label */
+.pct{
+  font-size:13px;
+  font-weight:700;
+  margin-left:8px;
+  color:#00f5a0;
+}
+
+/* ---------------- LISTS ---------------- */
+.list-inline{display:flex;flex-wrap:wrap;gap:10px}
+.badge{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);font-weight:600}
+
+/* ---------------- BUTTON ---------------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 16px;
+  border-radius:10px;
+  border:none;
+  background:var(--accent-gradient);
+  color:#000;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 8px 30px rgba(0,0,0,0.6);
+}
+.btn.secondary{
+  background:transparent;
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.06);
+}
+
+/* ---------------- PROJECTS & EXPERIENCE ---------------- */
+.project-title{font-size:16px;margin:0 0 8px}
+.meta{color:var(--muted);font-size:13px;margin-bottom:8px}
+.project-list{display:grid;gap:12px}
+
+/* ---------------- FOOTER ---------------- */
+.footer{color:var(--muted);text-align:center;margin-top:26px;font-size:13px}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width:880px){
+  .skills-grid{grid-template-columns:1fr}
+  .hero{flex-direction:column;align-items:flex-start}
+  .hero .photo{width:140px;height:140px}
+}
